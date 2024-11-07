@@ -1,0 +1,106 @@
+:root {
+    --color-primary: #636363;
+    --color-black: #191919;
+    --color-bg: #f4f7f6;
+    --color-white: #ffffff;
+    --color-int: #36ac9e;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-bg);
+    background-color: var(--color-bg);
+}
+
+/* Estilo da header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10rem;
+    background-color: var(--color-black);
+    width: 100%;
+    padding: 0 20px;
+    
+}
+
+/* Título da header */
+h1 {
+    font-size: 4rem;
+    color: white;
+    padding: 0 20px;
+}
+
+/* Container do menu hambúrguer */
+.menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0px 65px;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+}
+
+.hamburger .line {
+    height: 4px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Menu de navegação lateral */
+.nav-menu {
+    position: fixed; /* Fica fixado na tela */
+    top: 10rem; /* Dá margem para a navbar */
+    right: -250px; /* Inicialmente fora da tela */
+    width: 250px;  /* Largura do menu */
+    height: 100vh; /* Altura total da tela */
+    background-color: var(--color-primary);
+    
+    display: flex;
+    justify-content: center;
+
+    transition: right 0.4s ease; /* Transição suave */
+    z-index: 999; /* Garante que o menu fique abaixo da header */
+}
+
+/* Estilo dos itens do menu */
+.nav-menu ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    
+    list-style-type: none;
+    text-align: center;
+    padding-top: 0rem;
+    padding-bottom: 13rem;
+    padding-right: 2rem;
+}
+
+.nav-menu li {
+    margin: 25px 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #ff6347; /* Cor de destaque ao passar o mouse */
+}
+
+/* Quando o menu estiver aberto, ele se move para a direita */
+.nav-menu.open {
+    right: 0; /* Coloca o menu totalmente visível */
+}

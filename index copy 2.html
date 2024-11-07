@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Usuários</title>
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/style2.css">
+</head>
+<body>
+   <header>
+        <h1>GymFit</h1>
+
+        
+          <!-- Ícone do Menu Hambúrguer -->
+        <div class="menu-container">
+          <div class="hamburger" id="hamburger">
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+          </div>
+        </div>
+
+      <!-- Menu de Navegação -->
+      <nav id="nav-menu" class="nav-menu">
+          <ul>
+              <li><a href="index copy 2.html">Usuários</a></li>
+              <li><a href="index copy 3.html">Matrículas</a></li>
+            
+              <li><a href="#Agenda">Agenda</a></li>
+              <li><a href="#Treino">Treino</a></li>
+              <li><a href="#Aparelhos">Aparelhos</a></li>
+              <li><a href="#Feedback">Feedback</a></li>
+              <li><a href="#Relatórios">Relatórios</a></li>
+              <li><a href="#Suplementos">Suplementos</a></li>
+          </ul>
+      </nav>
+
+    
+    
+     <script src="hamburguer.js"></script>
+   </header>
+    
+    <section>
+        <div class="wrap">
+            <!-- Formulário de Cadastro/Atualização -->
+            <div id="form-container">
+                <h2>Adicionar/Editar Usuário</h2>
+                <form id="user-form">
+                    <input type="text" id="name" placeholder="Nome" required>
+                    <input type="text" id="cpf" placeholder="Senha" required>
+                    <input type="text" id="phone" placeholder="Telefone" required>
+                    <input type="text" id="position" placeholder="Cargo" required>
+                    <button type="submit" id="submit-btn">Salvar</button>
+                </form>
+            </div>
+
+            <!-- Lista de Usuários -->
+            <div id="user-list">
+                <h2>Lista de Funcionários</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Senha</th>
+                            <th>Telefone</th>
+                            <th>Cargo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        <!-- Usuários serão carregados aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="crud.js"></script>
+</body>
+</html>
