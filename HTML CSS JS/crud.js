@@ -3,11 +3,7 @@ const submitBtn = document.getElementById('submit-btn');
 const usersTableBody = document.getElementById('users-table-body');
 
 // Armazenando usuários fictícios (substitua por chamadas API reais)
-let users = [
-    { name: "João", cpf: "123456789", phone: "987654321", position: "Gerente" },
-    { name: "Maria", cpf: "987654321", phone: "912345678", position: "Professor" },
-    { name: "Carlos", cpf: "234567890", phone: "934567890", position: "Recepcionista" }
-];
+let users = [];
 
 // Função para exibir os usuários na tabela
 function renderUsers(filteredUsers) {
