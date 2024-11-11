@@ -1,6 +1,8 @@
 const form = document.getElementById('matricula-form');
 const submitBtn = document.getElementById('submit-btn');
 const matriculasTableBody = document.getElementById('matriculas-table-body');
+const searchName = document.getElementById('search-name');  // Campo de busca por nome
+const searchType = document.getElementById('search-type');  // Campo de busca por tipo de matrícula
 
 let matriculas = [];
 
@@ -13,7 +15,14 @@ function gerarNumeroMatricula() {
 function renderMatriculas() {
     matriculasTableBody.innerHTML = ''; // Limpa a tabela
 
-    matriculas.forEach((matricula, index) => {
+    // Filtro dos dados (aplicando filtro de busca por nome e tipo)
+    const filteredMatriculas = matriculas.filter(matricula => {
+        const nomeMatch = matricula.nome.toLowerCase().includes(searchName.value.toLowerCase());
+        const tipoMatch = matricula.tipo.toLowerCase().includes(searchType.value.toLowerCase());
+        return nomeMatch && tipoMatch;
+    });
+
+    filteredMatriculas.forEach((matricula, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${matricula.numero}</td>
@@ -68,6 +77,15 @@ function deletarMatricula(index) {
     matriculas.splice(index, 1);
     renderMatriculas();
 }
+
+// Função para aplicar os filtros de busca
+function applyFilters() {
+    renderMatriculas();  // Re-renderiza a tabela sempre que houver alteração no filtro
+}
+
+// Adiciona eventos de busca aos campos de filtro
+searchName.addEventListener('input', applyFilters);
+searchType.addEventListener('change', applyFilters);
 
 // Inicialização da página
 form.addEventListener('submit', handleSubmit);

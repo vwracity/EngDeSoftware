@@ -3,12 +3,16 @@ const submitBtn = document.getElementById('submit-btn');
 const usersTableBody = document.getElementById('users-table-body');
 
 // Armazenando usuários fictícios (substitua por chamadas API reais)
-let users = [];
+let users = [
+    { name: "João", cpf: "123456789", phone: "987654321", position: "Gerente" },
+    { name: "Maria", cpf: "987654321", phone: "912345678", position: "Professor" },
+    { name: "Carlos", cpf: "234567890", phone: "934567890", position: "Recepcionista" }
+];
 
 // Função para exibir os usuários na tabela
-function renderUsers() {
+function renderUsers(filteredUsers) {
     usersTableBody.innerHTML = ''; // Limpa a tabela
-    users.forEach((user, index) => {
+    (filteredUsers || users).forEach((user, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${user.name}</td>
@@ -44,7 +48,7 @@ function handleSubmit(event) {
     }
 
     form.reset();
-    renderUsers();
+    renderUsers(); // Re-renderiza todos os usuários
 }
 
 // Função para editar usuário
@@ -61,9 +65,24 @@ function editUser(index) {
 // Função para excluir usuário
 function deleteUser(index) {
     users.splice(index, 1);
-    renderUsers();
+    renderUsers(); // Re-renderiza a tabela após excluir
+}
+
+// Função para filtrar usuários
+function filterUsers() {
+    const nameFilter = document.getElementById('search-name').value.toLowerCase();
+    const positionFilter = document.getElementById('search-position').value.toLowerCase();
+
+    // Filtra a lista de usuários com base nos filtros de nome e cargo
+    const filteredUsers = users.filter(user => {
+        const nameMatch = user.name.toLowerCase().includes(nameFilter);
+        const positionMatch = user.position.toLowerCase().includes(positionFilter);
+        return nameMatch && positionMatch;
+    });
+
+    renderUsers(filteredUsers);
 }
 
 // Inicialização da página
 form.addEventListener('submit', handleSubmit);
-renderUsers();
+renderUsers(); // Renderiza os usuários ao carregar a página

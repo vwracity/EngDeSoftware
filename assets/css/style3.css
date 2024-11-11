@@ -207,3 +207,24 @@ button.edit-btn:hover, button.delete-btn:hover {
 #aparecer{
     display: none;
 }
+
+/* Filtro de busca */
+#filters {
+    display: flex;
+    padding-left: 10%;
+    gap: 20px;
+}
+
+#filters input, #filters select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#filters input {
+    width: 10%;
+}
+
+#filters select {
+    width: 12%;
+}

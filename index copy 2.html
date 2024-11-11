@@ -54,6 +54,11 @@
                     <button type="submit" id="submit-btn">Salvar</button>
                 </form>
             </div>
+             <!-- Filtros de busca -->
+                <div id="filters">
+                    <input type="text" id="search-name" placeholder="Buscar por nome" oninput="filterUsers()">
+                    <input type="text" id="search-position" placeholder="Buscar por cargo" oninput="filterUsers()">
+                </div>
 
             <!-- Lista de Usuários -->
             <div id="user-list">
