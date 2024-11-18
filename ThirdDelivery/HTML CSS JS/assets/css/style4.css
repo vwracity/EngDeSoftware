@@ -1,0 +1,99 @@
+/* Reset de margin, padding e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #dd9000;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #dd9000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: chocolate;
+}
+
+#pesquisa-exercicio input {
+    margin-bottom: 10px;
+}
+
+/* Estilo das tabelas */
+#alunos-cadastrados table, #exercicios-cadastrados table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#alunos-cadastrados th, #exercicios-cadastrados th, 
+#alunos-cadastrados td, #exercicios-cadastrados td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#alunos-cadastrados th, #exercicios-cadastrados th {
+    background-color: #f4f4f4;
+}
+
+#alunos-cadastrados button {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#alunos-cadastrados button:hover {
+    background-color: #e53935;
+}
