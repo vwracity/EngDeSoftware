@@ -1,0 +1,230 @@
+
+
+:root {
+    --color-primary: #636363;
+    --color-black: #191919;
+    --color-bg: #f4f7f6;
+    --color-white: #ffffff;
+    --color-int: #dd9000;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-bg);
+    background-color: var(--color-bg);
+}
+
+/* Estilo da header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10rem;
+    background-color: var(--color-black);
+    width: 100%;
+    padding: 0 20px;
+    
+}
+
+/* Título da header */
+h1 {
+    font-size: 4rem;
+    color: white;
+    padding: 0 20px;
+}
+
+
+/* Container do menu hambúrguer */
+.menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0px 65px;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+}
+
+.hamburger .line {
+    height: 4px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Menu de navegação lateral */
+.nav-menu {
+    position: fixed; /* Fica fixado na tela */
+    top: 10rem; /* Dá margem para a navbar */
+    right: -250px; /* Inicialmente fora da tela */
+    width: 250px;  /* Largura do menu */
+    height: 100vh; /* Altura total da tela */
+    background-color: var(--color-primary);
+    
+    display: flex;
+    justify-content: center;
+
+    transition: right 0.4s ease; /* Transição suave */
+    z-index: 999; /* Garante que o menu fique abaixo da header */
+}
+
+/* Estilo dos itens do menu */
+.nav-menu ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    
+    list-style-type: none;
+    text-align: center;
+    padding-top: 0rem;
+    padding-bottom: 13rem;
+    padding-right: 2rem;
+}
+
+.nav-menu li {
+    margin: 25px 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #ff6347; /* Cor de destaque ao passar o mouse */
+}
+
+/* Quando o menu estiver aberto, ele se move para a direita */
+.nav-menu.open {
+    right: 0; /* Coloca o menu totalmente visível */
+}
+
+
+
+/* Formulário de Matrícula */
+#form-container {
+    background-color: var(--color-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+#form-container h2 {
+    text-align: center;
+    color: var(--color-black);
+}
+
+#form-container input, #form-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+#form-container button {
+    background-color: var(--color-int);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#form-container button:hover {
+    background-color: chocolate;
+}
+
+/* Tabela de Matrículas */
+#matriculas-table-body{
+    color: var(--color-black);
+}
+
+#matriculas-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#matriculas-list table {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+#matriculas-list th, #matriculas-list td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#matriculas-list th {
+    background-color: var(--color-int);
+    color: var(--color-black);
+}
+
+#matriculas-list tr{
+    background-color: #f9f9f9;
+}
+
+button.edit-btn, button.delete-btn {
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button.edit-btn {
+    background-color: #ff6347;
+    color: white;
+}
+
+button.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+button.edit-btn:hover, button.delete-btn:hover {
+    opacity: 0.8;
+}
+
+#aparecer{
+    display: none;
+}
+
+/* Filtro de busca */
+#filters {
+    display: flex;
+    padding-left: 10%;
+    gap: 20px;
+}
+
+#filters input, #filters select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#filters input {
+    width: 10%;
+}
+
+#filters select {
+    width: 12%;
+}
