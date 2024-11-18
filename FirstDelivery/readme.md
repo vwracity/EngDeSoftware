@@ -1,1 +1,1 @@
-First Release of the project
+# First Release of the project
