@@ -175,7 +175,7 @@ h1 {
 
 #user-list th {
     background-color: var(--color-int);
-    color: var(--color-black);
+    color: white;
 }
 
 #user-list tr {

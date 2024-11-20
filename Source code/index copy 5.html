@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="./assets/css/normalize.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style5.css">
+  <script 
+    src="https://kit.fontawesome.com/8423e2eeb9.js" crossorigin="anonymous">
+    </script>
+</head>
+<body>
+  <header>
+    <h1>GymFit</h1>
+    <div class="menu-container">
+      <div class="hamburger" id="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+      </div>
+    </div>
+    <nav id="nav-menu" class="nav-menu">
+      <ul>
+          <li><a href="index copy 2.html">Usuários</a></li>
+          <li><a href="index copy 3.html">Matrículas</a></li>
+          <li><a href="#Agenda">Agenda</a></li>
+          <li><a href="index copy 4.html">Treino</a></li>
+          <li><a href="index copy 5.html">Aparelhos</a></li>
+          <li><a href="#Feedback">Feedback</a></li>
+          <li><a href="#Relatórios">Relatórios</a></li>
+          <li><a href="#Suplementos">Suplementos</a></li>
+      </ul>
+    </nav>
+    <script src="hamburguer.js"></script>
+  </header>
+
+  <section>
+
+    <!-- Formulário para adicionar ou editar aparelhos -->
+    <div class="form-container">
+        
+        <form id="formAparelho" onsubmit="salvarAparelho(event)">
+            <input placeholder="Digite o nome do aparelho" type="hidden" id="indexAparelho" value="">
+
+            <div class="form-container">
+              <h2>Adicionar ou Editar Aparelho</h2>
+              <form id="formAparelho" onsubmit="salvarAparelho(event)">
+                <h2 style="color: black;">Adicionar ou Editar Aparelho</h2> 
+                <input placeholder="Digite o nome do aparelho" type="hidden" id="indexAparelho" value="">
+                  
+                  <input type="text" id="nome" placeholder="Nome do Aparelho" required><br>
+                  <input type="text" id="tipo" placeholder="Tipo de Aparelho" required><br>
+                  <input type="text" id="marca" placeholder="Marca" required><br>
+                  <input type="text" id="modelo" placeholder="Modelo" required><br>
+                  <input type="date" id="data" placeholder="Data de Aquisição" required><br>
+                  
+                  <select id="status" required>
+                      <option value="">Selecione o Status</option>
+                      <option value="Em uso">Em uso</option>
+                      <option value="Em manutenção">Em manutenção</option>
+                      <option value="Fora de uso">Fora de uso</option>
+                  </select><br>
+                  <button id="salva" type="submit">Salvar</button>
+              
+              </form>
+          </div>
+
+            
+        </form>
+    </div>
+    <!-- Ferramenta de busca -->
+    <div class="busca">
+        <label for="buscaNome">Buscar por Nome:</label>
+        <input style="width: 12%;" type="text" id="buscaNome" onkeyup="filtrarTabela()" placeholder="Digite o nome do aparelho">
+        <label for="buscaStatus">Buscar por Status:</label>
+        <select id="buscaStatus" onchange="filtrarTabela()">
+            <option value="">Todos</option>
+            <option value="Em uso">Em uso</option>
+            <option value="Em manutenção">Em manutenção</option>
+            <option value="Fora de uso">Fora de uso</option>
+        </select>
+    </div>
+    <!-- Tabela para exibir os aparelhos -->
+    <div id="centralizador">
+      <table id="tabelaAparelhos">
+          <thead>
+              <tr>
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Marca</th>
+                  <th>Modelo</th>
+                  <th>Data de Aquisição</th>
+                  <th>Última Manutenção</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- As linhas da tabela serão inseridas dinamicamente com JavaScript -->
+          </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="aparelhos.js"></script>
+</body>
+</html>

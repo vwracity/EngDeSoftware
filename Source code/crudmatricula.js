@@ -1,3 +1,5 @@
+// script.js
+
 const form = document.getElementById('matricula-form');
 const submitBtn = document.getElementById('submit-btn');
 const matriculasTableBody = document.getElementById('matriculas-table-body');
@@ -9,6 +11,19 @@ let matriculas = [];
 // Função para gerar número de matrícula único de 8 dígitos
 function gerarNumeroMatricula() {
     return Math.floor(10000000 + Math.random() * 90000000); // Gera um número aleatório de 8 dígitos
+}
+
+// Função para salvar as matrículas no LocalStorage
+function salvarNoLocalStorage() {
+    localStorage.setItem('matriculas', JSON.stringify(matriculas));
+}
+
+// Função para carregar as matrículas do LocalStorage
+function carregarDoLocalStorage() {
+    const matriculasData = localStorage.getItem('matriculas');
+    if (matriculasData) {
+        matriculas = JSON.parse(matriculasData);
+    }
 }
 
 // Função para exibir as matrículas na tabela
@@ -57,6 +72,7 @@ function handleSubmit(event) {
         matriculas.push({ numero: numeroMatricula, nome, tipo, dataInicio });
     }
 
+    salvarNoLocalStorage();  // Salva no LocalStorage
     form.reset();
     renderMatriculas();
 }
@@ -75,6 +91,7 @@ function editarMatricula(index) {
 // Função para deletar matrícula
 function deletarMatricula(index) {
     matriculas.splice(index, 1);
+    salvarNoLocalStorage();  // Atualiza o LocalStorage após a exclusão
     renderMatriculas();
 }
 
@@ -85,8 +102,9 @@ function applyFilters() {
 
 // Adiciona eventos de busca aos campos de filtro
 searchName.addEventListener('input', applyFilters);
-searchType.addEventListener('change', applyFilters);
+searchType.addEventListener('input', applyFilters);
 
-// Inicialização da página
+// Inicializa a página
 form.addEventListener('submit', handleSubmit);
-renderMatriculas();
+carregarDoLocalStorage();  // Carrega as matrículas do LocalStorage
+renderMatriculas();  // Exibe as matrículas na tabela

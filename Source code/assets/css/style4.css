@@ -1,99 +1,210 @@
-/* Reset de margin, padding e box-sizing */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* styles.css */
+:root {
+    --color-primary: #636363;
+    --color-black: #191919;
+    --color-bg: #f4f7f6;
+    --color-white: #ffffff;
+    --color-int: #dd9000;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-bg);
+    background-color: var(--color-bg);
 }
 
-/* Estilo geral */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+/* Estilo da header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10rem;
+    background-color: var(--color-black);
+    width: 100%;
+    padding: 0 20px;
+    
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
+/* Título da header */
+header h1 {
+    font-size: 4rem;
+    color: white;
+    padding: 0 20px;
 }
 
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Container do menu hambúrguer */
+.menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0px 65px;
 }
 
-h2 {
-    color: #dd9000;
-    margin-bottom: 20px;
-}
-
-/* Estilo dos formulários */
-form {
+.hamburger {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
 }
 
-label {
-    font-weight: bold;
+.hamburger .line {
+    height: 4px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
 }
 
-input[type="text"], input[type="number"] {
-    padding: 10px;
+/* Menu de navegação lateral */
+.nav-menu {
+    position: fixed; /* Fica fixado na tela */
+    top: 10rem; /* Dá margem para a navbar */
+    right: -250px; /* Inicialmente fora da tela */
+    width: 250px;  /* Largura do menu */
+    height: 100vh; /* Altura total da tela */
+    background-color: var(--color-primary);
+    
+    display: flex;
+    justify-content: center;
+
+    transition: right 0.4s ease; /* Transição suave */
+    z-index: 999; /* Garante que o menu fique abaixo da header */
+}
+
+/* Estilo dos itens do menu */
+.nav-menu ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    
+    list-style-type: none;
+    text-align: center;
+    padding-top: 0rem;
+    padding-bottom: 13rem;
+    padding-right: 2rem;
+}
+
+.nav-menu li {
+    margin: 25px 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #ff6347; /* Cor de destaque ao passar o mouse */
+}
+
+/* Quando o menu estiver aberto, ele se move para a direita */
+.nav-menu.open {
+    right: 0; /* Coloca o menu totalmente visível */
+}
+
+
+
+section h1{
+    color: black;
+}
+  
+form {
+    margin-bottom: 15px;
+}
+#formContainer{
+    width: 30%;
+    padding-left: 20px;
+
+}
+form label {
+    display: block;
+    margin-top: 10px;
+}
+  
+form input, form select, form textarea {
+    width: 100%;
+    padding: 9px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
 }
-
-button {
-    padding: 10px 15px;
-    background-color: #dd9000;
+  
+form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--color-int);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
 }
-
-button:hover {
+  
+form button:hover {
     background-color: chocolate;
 }
 
-#pesquisa-exercicio input {
-    margin-bottom: 10px;
-}
+#formAluno{
+    color: black;
 
-/* Estilo das tabelas */
-#alunos-cadastrados table, #exercicios-cadastrados table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
+} 
+.search {
+    margin-bottom: 20px;
 }
-
-#alunos-cadastrados th, #exercicios-cadastrados th, 
-#alunos-cadastrados td, #exercicios-cadastrados td {
-    padding: 10px;
+  
+#pesquisa {
+    padding: 8px;
+    width: 300px;
     border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+}
+  
+table {
+    background-color: white;
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+  
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+#tabela{
+    display: flex;
+    justify-content: center;
+}
+
+th, td {
+    padding: 10px;
     text-align: center;
-}
 
-#alunos-cadastrados th, #exercicios-cadastrados th {
-    background-color: #f4f4f4;
 }
-
-#alunos-cadastrados button {
-    padding: 5px 10px;
-    background-color: #f44336;
-    color: white;
+td {
+    color: black
+}
+th {
+    background-color: var(--color-int);
+}
+  
+button {
     border: none;
     border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    
+    background-color: white;
+    transition: 200ms;
 }
 
-#alunos-cadastrados button:hover {
-    background-color: #e53935;
+.edit-btn{
+    color: var(--color-int);
 }
+button:hover {
+    transform: scale(1.04);
+}
+  

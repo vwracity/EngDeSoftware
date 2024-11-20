@@ -1,0 +1,125 @@
+:root {
+    --color-primary: #636363;
+    --color-black: #191919;
+    --color-bg: #f4f7f6;
+    --color-white: #ffffff;
+    --color-int: #dd9000;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-bg);
+    background-color: var(--color-bg);
+}
+
+
+
+section h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2rem;
+    color: var(--color-int);
+}
+
+.busca {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input, select {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: var(--color-int);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#salva:hover  {
+    background-color: chocolate;
+}
+
+.form-container {
+    
+    padding-left: 20px;
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    width: 40%;
+}
+
+table {
+    
+    background-color: var(--color-int);
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+ 
+    overflow: hidden;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--color-int);
+    color: white;
+}
+
+td {
+    color: black;
+    background-color: var(--color-white);
+}
+
+td button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.editar {
+    background-color: white;
+    color: var(--color-int);
+}
+
+.excluir {
+    background-color: white;
+    color: red;
+}
+
+.editar:hover {
+    transform: scale(1.04);
+}
+
+.excluir:hover {
+    transform: scale(1.04);
+}
+
+label{
+    color: black;
+}
+
+#centralizador{
+    display: flex;
+    justify-content: center;
+
+}

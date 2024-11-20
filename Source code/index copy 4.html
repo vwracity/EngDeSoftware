@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Usuários</title>
     <link rel="stylesheet" href="./assets/css/normalize.css">
-    <link rel="stylesheet" href="./assets/css/style2.css">
     <link rel="stylesheet" href="./assets/css/style4.css">
 </head>
 <body>
@@ -30,7 +29,7 @@
             
               <li><a href="#Agenda">Agenda</a></li>
               <li><a href="index copy 4.html">Treino</a></li>
-              <li><a href="#Aparelhos">Aparelhos</a></li>
+              <li><a href="index copy 5.html">Aparelhos</a></li>
               <li><a href="#Feedback">Feedback</a></li>
               <li><a href="#Relatórios">Relatórios</a></li>
               <li><a href="#Suplementos">Suplementos</a></li>
@@ -41,54 +40,70 @@
     
      <script src="hamburguer.js"></script>
    </header>
-    
-
-   <div class="container">
-    <!-- Cadastro de Exercícios -->
-    <section id="cadastro-exercicio">
-        <h2>Cadastrar Novo Exercício</h2>
-        <form id="form-cadastro">
-            <label for="nome">Nome do Aluno:</label>
-            <input type="text" id="nome" name="nome" required>
-
-            <label for="treino">Treino:</label>
-            <input type="text" id="treino" name="treino" required>
-
-            <label for="exercicio">Exercício:</label>
-            <input type="text" id="exercicio" name="exercicio" required>
-
-            <label for="serie">Número de Séries:</label>
-            <input type="number" id="serie" name="serie" required>
-
-            <label for="repeticoes">Número de Repetições:</label>
-            <input type="number" id="repeticoes" name="repeticoes" required>
-
-            <button type="submit">Cadastrar Exercício</button>
+   
+   
+   
+        <section>
+            <div id="formContainer">
+                <h1>Gerenciamento de Treinos</h1>
+                
+                <!-- Formulário para Adicionar ou Editar Alunos -->
+                <form id="formAluno">
+                    <label for="nome">Nome do Aluno:</label>
+                    <input type="text" id="nome" required>
+                    
+                    <label for="inicio">Data de Início:</label>
+                    <input type="date" id="inicio" required>
+                    
+                    <label for="fim">Data de Fim:</label>
+                    <input type="date" id="fim" required>
+                    
+                    <label for="divisao">Divisão de Treino:</label>
+                    <select id="divisao" required>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                    
+                    <label for="exercicios">Exercícios:</label>
+                    <textarea id="exercicios" rows="5" required>
+                    </textarea>
+                    <button type="submit" id="btnSalvar">Adicionar</button>
+                </form>
+                    <!-- Caixa de Pesquisa -->
+                <div class="search">
+                    <label style="color: black;" for="pesquisa">Pesquisar:</label>
+                    <input type="text" id="pesquisa" placeholder="Nome ou Divisão">
+                </div>
+            
+            </div>
+            
+            
+            <hr>
         
-        
-        </form>
-    </section>
+            <div id="tabela">
+                <!-- Tabela de Alunos -->
+                <table id="tabelaAlunos">
+                    <thead>
+                        <tr>
+                        <th>Nome</th>
+                        <th>Data de Início</th>
+                        <th>Data de Fim</th>
+                        <th>Divisão de Treino</th>
+                        <th>Exercícios</th>
+                        <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados dos alunos serão exibidos aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-    <!-- Pesquisa de Exercícios -->
-    <section id="pesquisa-exercicio">
-        <h2>Pesquisar Exercícios</h2>
-        <label for="pesquisa-nome">Nome do Aluno:</label>
-        <input type="text" id="pesquisa-nome">
 
-        <label for="pesquisa-treino">Treino:</label>
-        <input type="text" id="pesquisa-treino">
 
-        <button type="button" id="consultar">Consultar</button>
-    </section>
-
-    <!-- Lista de Alunos com Exercícios -->
-    <section id="tabela-alunos">
-        <h2>Alunos Cadastrados</h2>
-        <div id="alunos-cadastrados">
-            <!-- A lista de alunos será exibida aqui -->
-        </div>
-    </section>
-</div>
+   
    
     <script src="script.js"></script>
     <script src="treino.js"></script>

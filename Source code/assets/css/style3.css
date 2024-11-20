@@ -116,7 +116,7 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
-    width: 30%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -143,7 +143,7 @@ h1 {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    width: 25%;
 }
 
 #form-container button:hover {
@@ -176,11 +176,11 @@ h1 {
 
 #matriculas-list th {
     background-color: var(--color-int);
-    color: var(--color-black);
+    color: white;
 }
 
 #matriculas-list tr{
-    background-color: #f9f9f9;
+    background-color: white;
 }
 
 button.edit-btn, button.delete-btn {
@@ -191,13 +191,23 @@ button.edit-btn, button.delete-btn {
 }
 
 button.edit-btn {
-    background-color: #ff6347;
-    color: white;
+    background-color: white;
+    color: var(--color-int);
+    transition: 200ms;
 }
 
 button.delete-btn {
-    background-color: #dc3545;
-    color: white;
+    background-color: white;
+    color: red;
+    transition: 200ms;
+}
+
+button.delete-btn:hover {
+    transform: scale(1.04);
+}
+
+button.edit-btn:hover {
+    transform: scale(1.04);
 }
 
 button.edit-btn:hover, button.delete-btn:hover {
