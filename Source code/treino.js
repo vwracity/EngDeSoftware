@@ -1,4 +1,3 @@
-
 const formAluno = document.getElementById('formAluno');
 const nomeInput = document.getElementById('nome');
 const inicioInput = document.getElementById('inicio');
@@ -8,19 +7,20 @@ const exerciciosInput = document.getElementById('exercicios');
 const tabelaAlunos = document.getElementById('tabelaAlunos').getElementsByTagName('tbody')[0];
 const pesquisaInput = document.getElementById('pesquisa');
 
+let editando = false;  // Variável para verificar se estamos editando um aluno
+let indexEdicao = null; // Armazena o índice do aluno sendo editado
 
+// Função para carregar matrículas
 function carregarMatriculas() {
   let matriculas = JSON.parse(localStorage.getItem('matriculas')) || [];
-  
 
   matriculas.forEach((matricula, index) => {
-
     let aluno = {
       nome: matricula.nome,
       dataInicio: matricula.dataInicio,
       dataFim: matricula.dataFim,
-      divisao: 'A', 
-      exercicios: ` ` 
+      divisao: 'A',
+      exercicios: ' ',
     };
     salvarAluno(aluno, index);
   });
@@ -65,7 +65,7 @@ function carregarAlunos() {
 function editarAluno(index) {
   let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
   let aluno = alunos[index];
-  
+
   // Preenche os campos de edição com as informações do aluno
   nomeInput.value = aluno.nome;
   inicioInput.value = aluno.dataInicio;
@@ -76,16 +76,13 @@ function editarAluno(index) {
   // Atualiza o botão de salvar para "Salvar Edição"
   document.getElementById('btnSalvar').textContent = 'Salvar Edição';
 
-  // Atualiza o evento de submit para editar esse aluno
-  formAluno.removeEventListener('submit', adicionarAluno);
-  formAluno.addEventListener('submit', function(event) {
-    event.preventDefault();
-    salvarAlunoEdicao(index);
-  });
+  // Define o estado de edição
+  editando = true;
+  indexEdicao = index; // Salva o índice do aluno em edição
 }
 
 // Função para salvar a edição do aluno
-function salvarAlunoEdicao(index) {
+function salvarAlunoEdicao() {
   let alunoEditado = {
     nome: nomeInput.value,
     dataInicio: inicioInput.value,
@@ -95,21 +92,17 @@ function salvarAlunoEdicao(index) {
   };
 
   let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
-  alunos[index] = alunoEditado;  // Substitui o aluno na posição correta
+  alunos[indexEdicao] = alunoEditado;  // Substitui o aluno na posição correta
 
   localStorage.setItem('alunos', JSON.stringify(alunos));
 
   resetarFormulario();
   carregarAlunos();
 
+  // Restaura o estado do formulário
   document.getElementById('btnSalvar').textContent = 'Adicionar';
-  
-  // Restaura o evento padrão do formulário
-  formAluno.removeEventListener('submit', function(event) {
-    event.preventDefault();
-    salvarAlunoEdicao(index);
-  });
-  formAluno.addEventListener('submit', adicionarAluno);
+  editando = false;
+  indexEdicao = null; // Limpa o índice de edição
 }
 
 // Função para remover o aluno
@@ -123,7 +116,7 @@ function removerAluno(index) {
 // Função para adicionar um novo aluno
 function adicionarAluno(event) {
   event.preventDefault();
-  
+
   let aluno = {
     nome: nomeInput.value,
     dataInicio: inicioInput.value,
@@ -132,9 +125,13 @@ function adicionarAluno(event) {
     exercicios: exerciciosInput.value
   };
 
-  salvarAluno(aluno);
-  carregarAlunos();
-  resetarFormulario();
+  if (editando) {
+    salvarAlunoEdicao();
+  } else {
+    salvarAluno(aluno);
+    carregarAlunos();
+    resetarFormulario();
+  }
 }
 
 // Função para resetar o formulário
@@ -150,11 +147,11 @@ function resetarFormulario() {
 function pesquisarAlunos() {
   let pesquisa = pesquisaInput.value.toLowerCase();
   let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
-  let resultado = alunos.filter(aluno => 
-    aluno.nome.toLowerCase().includes(pesquisa) || 
+  let resultado = alunos.filter(aluno =>
+    aluno.nome.toLowerCase().includes(pesquisa) ||
     aluno.divisao.toLowerCase().includes(pesquisa)
   );
-  
+
   tabelaAlunos.innerHTML = '';
   resultado.forEach((aluno, index) => {
     let row = tabelaAlunos.insertRow();
