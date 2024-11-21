@@ -204,6 +204,10 @@ button {
 .edit-btn{
     color: var(--color-int);
 }
+.delete-btn{
+    color: red;
+}
+
 button:hover {
     transform: scale(1.04);
 }
